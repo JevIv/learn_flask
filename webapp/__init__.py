@@ -8,7 +8,7 @@ from webapp.python_org_news import get_python_news
 
 def create_app():
 
-	app = Flask(__name__, template_folder='templates')
+	app = Flask(__name__)
 	app.config.from_pyfile('config.py')
 	db.init_app(app)
 
@@ -19,6 +19,3 @@ def create_app():
 	    news_list = get_python_news()
 	    return render_template('index.html', page_title=title, weather=weather, news_list=news_list)
 	return app
-
-if __name__ == '__main__': 
-    app.run()
